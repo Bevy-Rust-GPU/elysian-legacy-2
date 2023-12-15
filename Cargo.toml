@@ -4,17 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["std", "serde", "glam"]
-std = ["dep:image", "dep:viuer", "t-funk/std"]
-serde = ["dep:serde"]
+default = ["glam"]
 glam = ["rust-gpu-bridge/glam"]
-spirv-std = ["rust-gpu-bridge/spirv-std"]
+spirv-std = ["dep:spirv-std", "rust-gpu-bridge/spirv-std"]
 
 [dependencies]
 rust-gpu-bridge = { git = "https://github.com/bevy-rust-gpu/rust-gpu-bridge", tag = "v0.5.0" }
-
-t-funk = { git = "https://github.com/bevy-rust-gpu/t-funk", default-features = false }
-
-image = { version = "0.24.6", optional = true }
-viuer = { version = "0.6.2", optional = true }
-serde = { version = "1.0.163", features = ["derive"], optional = true }
+spirv-std = { version = "0.8", optional = true }
